@@ -24,7 +24,8 @@ class CreateProductFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=> 'required',
+            'quantity'=>'required',
         ];
     }
 }

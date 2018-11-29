@@ -2,6 +2,7 @@
     <div>
         <app-sidebar></app-sidebar>
         <div class="main">
+            <vue-snotify></vue-snotify>
             <router-view></router-view>
         </div>
     </div>

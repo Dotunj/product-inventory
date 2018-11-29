@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\Requests\CreateProductFormRequest;
+use App\Http\Requests\CreateProductFormRequest;
 
 class ProductController extends Controller
 {
@@ -13,6 +13,18 @@ class ProductController extends Controller
         return view('home');
     }
     
+    public function total()
+    {
+        $products_count = Product::all()->count();
+
+        $result = [
+          'status'=>true,
+          'data'=>$products_count
+        ];
+
+        return response()->json($result, 200);
+
+    }
     public function index()
     {
         $products = Product::latest()->get();
@@ -39,8 +51,7 @@ class ProductController extends Controller
 
          $result = [
              'status' => true,
-             'message' => 'successfully created product',
-             'data' => $product
+             'message' => 'Product has been added',
          ];
 
         return response()->json($result, 201);
@@ -66,8 +77,8 @@ class ProductController extends Controller
         ]);
 
         $result = [
-          'status'=>true,
-          'message'=>'successfully updated product',
+          'status'=>'true',
+          'message'=>'Product has been updated',
           'data'=>$product
         ];
 
@@ -80,8 +91,7 @@ class ProductController extends Controller
 
         $result = [
             'status'=>true,
-            'message'=>'successfully deleted product',
-            'data'=>$product
+            'message'=>'Product has been deleted',
           ];
 
         return response()->json($result, 200);

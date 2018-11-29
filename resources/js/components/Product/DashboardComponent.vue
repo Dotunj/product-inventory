@@ -9,7 +9,7 @@
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-sticky-note"></i></span>
                                 <p>
-                                    <span class="number">4</span>
+                                    <span class="number">{{productCount}}</span>
                                     <span class="title">Products</span>
                                 </p>
                             </div>
@@ -26,6 +26,24 @@
 
 <script>
     export default {
-    
+      data() {
+          return {
+              productCount: null,
+          }
+      },
+
+      created(){
+          this.fetchProductCount()
+      },
+
+      methods: {
+          fetchProductCount(){
+              window.axios.get('/api/product/total')
+              .then(res=> {
+                  console.log(res);
+                  this.productCount = res.data.data
+              })
+          }
+      }
     }
 </script>

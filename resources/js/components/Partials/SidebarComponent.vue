@@ -5,15 +5,9 @@
         <div class="brand">
         </div>
         <div class="container-fluid">
-            <div class="navbar-btn">
-                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-            </div>
             <div id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Administrator</span> <i
-                                class="icon-submenu lnr lnr-chevron-down"></i></a>
-                    </li>
+                        <a href="#"><span>Administrator</span></a>
                 </ul>
             </div>
         </div>
@@ -31,7 +25,7 @@
                         <div id="products" class="collapse ">
                             <ul class="nav">
                                 <li><router-link :to="{name: 'add.product'}"><a>Add Product </a></router-link></li>
-                                <li><a href="" class="">All Products</a></li>
+                                <li><router-link :to="{name: 'all.product'}"><a>All Products</a></router-link></li>
                             </ul>
                         </div>
                     </li>
