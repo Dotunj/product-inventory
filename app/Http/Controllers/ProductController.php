@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\Http\Requests\CreateProductFormRequest;
+use Validator;
 
 class ProductController extends Controller
 {
@@ -38,8 +38,18 @@ class ProductController extends Controller
         return response()->json($result, 200);
     }
 
-    public function store(CreateProductFormRequest $request)
+    public function store(Request $request)
     {
+        $rules = [
+        'name'=>'required',
+        'quantity'=>'required'
+         ];
+      
+        //validate incoming data
+      $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()){
+          return response()->json($validator->messages());
+        }
 
          $product = new Product();
 
@@ -69,8 +79,18 @@ class ProductController extends Controller
       return response($result, 200);
     }
 
-    public function update(CreateProductFormRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
+        $rules = [
+            'name'=>'required',
+            'quantity'=>'required'
+            ];
+    
+          $validator = Validator::make($request->all(), $rules); 
+            if($validator->fails()){
+              return response()->json($validator->messages());
+            }
+
         $product->update([
           'name'=> $request->name,
           'quantity'=>$request->quantity,
