@@ -74,8 +74,8 @@ import 'vue-loading-overlay/dist/vue-loading.css';
             fetchProducts() {
                 window.axios.get('/api/products')
                     .then(res => {
-                        this.products = res.data.data
                         this.isLoading = false
+                        this.products = res.data.data
                     })
             },
             editProduct(identifier){
