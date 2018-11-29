@@ -8,6 +8,11 @@ use App\Requests\CreateProductFormRequest;
 
 class ProductController extends Controller
 {
+    public function home()
+    {
+        return view('home');
+    }
+    
     public function index()
     {
         $products = Product::latest()->get();
@@ -18,7 +23,7 @@ class ProductController extends Controller
             'data' => $products
         ];
 
-        return response($result, 200);
+        return response()->json($result, 200);
     }
 
     public function store(CreateProductFormRequest $request)
@@ -38,7 +43,7 @@ class ProductController extends Controller
              'data' => $product
          ];
 
-        return response($result, 201);
+        return response()->json($result, 201);
         
     }
 
@@ -66,7 +71,7 @@ class ProductController extends Controller
           'data'=>$product
         ];
 
-      return response($result, 200);
+      return response()->json($result, 200);
     }
 
     public function delete(Product $product)
@@ -79,6 +84,6 @@ class ProductController extends Controller
             'data'=>$product
           ];
 
-        return response($result, 200);
+        return response()->json($result, 200);
     }
 }
