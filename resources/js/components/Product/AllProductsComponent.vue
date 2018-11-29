@@ -5,7 +5,7 @@
     
             <h3 class="page-title">All Products</h3>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-12 col-md-12 col-lg-8" >
                     <!-- BASIC TABLE -->
                     <div class="panel">
                         <div class="panel-heading">
@@ -15,10 +15,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Quantity</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>

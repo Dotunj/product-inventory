@@ -17,8 +17,7 @@ Vue.use(Snotify)
 loadProgressBar();
 
 const router = new VueRouter({
-    mode: 'history',
-    routes     
+    routes,
 })
 
 

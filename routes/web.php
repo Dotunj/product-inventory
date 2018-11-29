@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/{any}', 'ProductController@home')->where('any', '.*');
+Route::get('/{any}', 'ProductController@home')->where('any', '[\/\w\.-]*');
